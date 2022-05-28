@@ -11,8 +11,7 @@
 [0-9]+			|
 [0-9]+\.[0-9]+		|
 \.[0-9]+		{return NUMBER;}
-[a-zA-Z\_]+			|
-[a-zA-Z0-9\_]*		{return identificador;}
+[a-zA-Z\_]+[a-zA-Z0-9\_]*		{return identificador;}
 
 %%
 
@@ -25,7 +24,4 @@ char *argv[];
 int val;
 while(val = yylex()) printf("value is %d\n",val);
 }
-
-
-
 
