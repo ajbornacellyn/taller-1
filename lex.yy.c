@@ -10,7 +10,7 @@
 #define YY_FLEX_MINOR_VERSION 6
 #define YY_FLEX_SUBMINOR_VERSION 4
 #if YY_FLEX_SUBMINOR_VERSION > 0
-#define FLEX_BETA
+//#define FLEX_BETA
 #endif
 
 /* First, we deal with  platform-specific or compiler-specific issues. */
