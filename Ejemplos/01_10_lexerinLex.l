@@ -6,6 +6,7 @@
 #define TEXT 402
 #define COMMAND 403
 %}
+/********** definiciones regulares ********/
 INT[1-9][0-9]*|[0]
 FLOAT [0-9]*[.][0-9]+([eE][+-]?[0-9]*|[0])?f?
 delim [ \t\n]
@@ -14,22 +15,13 @@ SEMI [;]
 COMMA [,]
 ASSIGNOP [=]
 RELOP [>]|[<]|[>][=]|[<][=]|[=][=]|[!][=](^[=])
-PLUS [+]
-MINUS [-]
-STAR [*]
-DIV [/]
+OPARIT [+]|[-]|[*]|[/]
+BRACKETS [\(]|[\)]|[\]|[\]]|[\{]|[\}]
 AND [&][&]
 OR [|][|]
 DOT [.]
 NOT [!]
 TYPE int|float
-LP \(
-RP \)
-LB \[
-RB \]
-LC \{
-RC \}
-STRUCT struct
 RETURN return
 SELF self
 IF if
@@ -38,7 +30,7 @@ WHILE while
 SPACE [ \n\t]
 ID [a-zA-Z_][a-zA-Z_0-9]*
 /*end of definition*/
- 
+/********** fin definiciones regulares ********/
 %%
 {ws} {/* no hay accion y no hay retorno */}
 
@@ -47,17 +39,21 @@ ID [a-zA-Z_][a-zA-Z_0-9]*
 {SEMI} {printf("categoria fin de linea : %s\n", yytext);}
 {COMMA} {printf("categoria simbolo : %s\n", yytext);}
 {ASSIGNOP} {printf("categoria operador de asignacion : %s\n", yytext);}
-{PLUS} | {MINUS} |{DIV} |{STAR} {printf("categoria operador: %s\n", yytext);}
+{OPARIT} {printf("categoria operador: %s\n", yytext);}
 {RELOP} {printf("categoria a operador relacional: %s\n", yytext);}
-{SELF} |{RETURN} |{IF} |{ELSE} |{WHILE} {printf("categoria palabra clave: %s\n", yytext);}
-{LP} |{RP} |{LB} |{RB} |{LC} |{RC} {printf("categoria  : %s\n", yytext);}
+{BRACKETS} {printf("categoria  parentesis : %s\n", yytext);}
+{RETURN} |
+{IF} |
+{ELSE} |
+{WHILE} {printf("categoria palabra reservada: %s\n", yytext);}
 {ID} {printf("categoria  ID: %s\n", yytext);}
 
 %%
 int yywrap() {
   return 1;
 }
- 
+
+/********** para recorrer  la entradad y devolver la categoría lexica correspondiente ********/
 int main(int argc, char** argv) {
    if (argc > 1) {
        if (!(yyin = fopen(argv[1], "r"))) {   
