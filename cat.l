@@ -16,7 +16,7 @@ entero		|
 [0-9]*\.[0-9]+E[\+|\-][0-9]+[ \t\n]		|
 [0-9]+E[\+|\-][0-9]+[ \t\n]			{return real;}
 [a-zA-Z\_]+[a-zA-Z0-9\_]*[ \t\n]		{return identificador;}
-\#[a-zA-Z0-9 ]*[ \t\n]		{return comentario;}
+\#[^\n]*[\n]		{return comentario;}
 
 
 %%
