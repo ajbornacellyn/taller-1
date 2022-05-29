@@ -1,5 +1,5 @@
 %{
-#define NUMBER 400
+#define real 400
 #define identificador 401
 #define COMMENT 402
 #define TEXT 403
@@ -8,10 +8,12 @@
 
 %%
 [ \t\n]+		;
-[0-9]+			|
-[0-9]+\.[0-9]+		|
-\.[0-9]+		{return NUMBER;}
-[a-zA-Z\_]+[a-zA-Z0-9\_]*		{return identificador;}
+[0-9]+[ \t\n]	|
+[0-9]+\.[0-9]+[ \t\n]		|
+\.[0-9]+[ \t\n]		|
+[0-9]*\.[0-9]+E[\+|\-][0-9]+[ \t\n]			{return real;}
+[ \t\n]+[a-zA-Z\_]+[a-zA-Z0-9\_]*[ \t\n]		{return identificador;}
+
 
 %%
 
