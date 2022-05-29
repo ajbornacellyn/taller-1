@@ -2,7 +2,7 @@
 #define entero 400
 #define real 401
 #define identificador 402
-#define COMMENT 403
+#define comentario 403
 #define TEXT 404
 #define COMMAND 405
 %}
@@ -15,7 +15,8 @@ entero		|
 \.[0-9]+[ \t\n]		|
 [0-9]*\.[0-9]+E[\+|\-][0-9]+[ \t\n]		|
 [0-9]+E[\+|\-][0-9]+[ \t\n]			{return real;}
-[ \t\n]+[a-zA-Z\_]+[a-zA-Z0-9\_]*[ \t\n]		{return identificador;}
+[a-zA-Z\_]+[a-zA-Z0-9\_]*[ \t\n]		{return identificador;}
+\#[a-zA-Z0-9 ]*[ \t\n]		{return comentario;}
 
 
 %%
