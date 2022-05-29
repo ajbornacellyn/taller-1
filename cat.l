@@ -1,14 +1,16 @@
 %{
-#define real 400
-#define identificador 401
-#define COMMENT 402
-#define TEXT 403
-#define COMMAND 404
+#define entero 400
+#define real 401
+#define identificador 402
+#define COMMENT 403
+#define TEXT 404
+#define COMMAND 405
 %}
 
 %%
 [ \t\n]+		;
-[0-9]+[ \t\n]	|
+[0-9]+[ \t\n]		{return entero;}
+entero		|
 [0-9]+\.[0-9]+[ \t\n]		|
 \.[0-9]+[ \t\n]		|
 [0-9]*\.[0-9]+E[\+|\-][0-9]+[ \t\n]		|
