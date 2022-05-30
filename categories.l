@@ -1,13 +1,22 @@
+/*ANALIZADOR LEXICO*/
+
+/*SECCION DE DEFINICIONES*/
 %{
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+FILE *yyln; /*puntero que utiliza flex, el cual termina parado en el ultimo token que es reconocido*/
+#define PI 3.1415
+#define E 2.7182
 #define NUMBER 400
-#define identificador 401
-#define COMMENT 402
-#define TEXT 403
-#define COMMAND 404
+#define COMMENT 401
+#define TEXT 402
+#define COMMAND 403
 %}
+
 /********** definiciones regulares ********/
+
 INT [1-9][0-9]*|[0]
 FLOAT [0-9]*[.][0-9]+([eE][+-]?[0-9]*|[0])?f?
 delim [ \t\n]
@@ -17,32 +26,39 @@ COMMA [,]
 ASSIGNOP [=]
 RELOP [>]|[<]|[>][=]|[<][=]|[=][=]|[!][=](^[=])
 OPARIT [+]|[-]|[*]|[/]
-BRACKETS [\(]|[\)]|[\]|[\]]|[\{]|[\}]
+PARENTESIS [\(]|[\)]
+BRACKETS [\[]|[\]]
+LLAVES [\{]|[\}]
 AND [&][&]
 OR [|][|]
 DOT [.]
 NOT [!]
-TYPE int|float
+
 RETURN return
 SELF self
 IF if
 ELSE else 
 WHILE while
-SPACE [ \n\t]
 ID [a-zA-Z_][a-zA-Z_0-9]*
-/*end of definition*/
+
+
 /********** fin definiciones regulares ********/
+/*SECCION DE REGLAS*/
 %%
 {ws} {/* no hay accion y no hay retorno */}
 
 {INT} {printf("categoria entero: %s\n", yytext);}
 {FLOAT} {printf("categoria flotante: %s\n", yytext);}
 {SEMI} {printf("categoria fin de linea : %s\n", yytext);}
-{COMMA} {printf("categoria simbolo : %s\n", yytext);}
+{COMMA} |
+{DOT} |
+{NOT} {printf("categoria simbolo : %s\n", yytext);}
 {ASSIGNOP} {printf("categoria operador de asignacion : %s\n", yytext);}
 {OPARIT} {printf("categoria operador: %s\n", yytext);}
 {RELOP} {printf("categoria a operador relacional: %s\n", yytext);}
-{BRACKETS} {printf("categoria  parentesis : %s\n", yytext);}
+{PARENTESIS} {printf("categoria  parentesis : %s\n", yytext);}
+{BRACKETS} {printf("categoria  parentesis cuadrados : %s\n", yytext);}
+{LLAVES} {printf("categoria  llaves : %s\n", yytext);}
 {RETURN} |
 {IF} |
 {ELSE} |
@@ -50,9 +66,7 @@ ID [a-zA-Z_][a-zA-Z_0-9]*
 {ID} {printf("categoria  ID: %s\n", yytext);}
 
 %%
-int yywrap() {
-  return 1;
-}
+
 
 /********** para recorrer  la entradad y devolver la categoría lexica correspondiente ********/
 int main(int argc, char** argv) {
@@ -62,6 +76,7 @@ int main(int argc, char** argv) {
            return 1;
        }
    }
+
    while (yylex());
    return 0;
 }
