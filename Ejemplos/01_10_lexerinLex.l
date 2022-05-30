@@ -7,7 +7,7 @@
 #define COMMAND 403
 %}
 /********** definiciones regulares ********/
-INT[1-9][0-9]*|[0]
+INT [1-9][0-9]*|[0]
 FLOAT [0-9]*[.][0-9]+([eE][+-]?[0-9]*|[0])?f?
 delim [ \t\n]
 ws {delim}+
