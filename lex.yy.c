@@ -10,7 +10,7 @@
 #define YY_FLEX_MINOR_VERSION 6
 #define YY_FLEX_SUBMINOR_VERSION 4
 #if YY_FLEX_SUBMINOR_VERSION > 0
-#define FLEX_BETA
+//#define FLEX_BETA
 #endif
 
 /* First, we deal with  platform-specific or compiler-specific issues. */
@@ -458,7 +458,7 @@ char *yytext;
  * down here because we want the user's section 1 to have been scanned first.
  * The user has a chance to override it with an option.
  */
-#include <unistd.h>
+//#include <unistd.h>
 #endif
 
 #ifndef YY_EXTRA_TYPE
