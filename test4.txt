@@ -1,0 +1,9 @@
+#creamos un modelo
+model_1 = model(1,2);
+friedman(model_1);
+
+rank 1;
+treatment 2;
+block 100;
+
+
