@@ -4,6 +4,7 @@ vector bloque2 = {1.2,4.32,4.3,2.3};
 
 boolean var1 = true;
 boolean var2 = false;
+
 var3 = 50;
 var4 = 6.6;
 var5 = 6.33E20;

@@ -48,6 +48,7 @@ FILE *yyln; /*puntero que utiliza flex, el cual termina parado en el ultimo toke
 #define VECTORWR 515
 #define CDF 516
 #define FRIEDMAN 517
+#define SYMBOL 518
 %}
 
 /********** definiciones regulares ********/
@@ -135,7 +136,7 @@ FRIEDMAN {FRIEDMANW}\(({MODEL}|{ID})\)
 {DOT} |
 {AND} |
 {OR} |
-{NOT} {printf("categoria simbolo condicional : %s", yytext);}
+{NOT} {printf("categoria simbolo condicional : %s", yytext); return(SYMBOL);}
 {LLAVES} {printf("categoria llaves : %s", yytext); return(LLAVES);}
 {ID} {printf("categoria identificador: %s", yytext); return(ID);}
 {CDF} {printf("categoria C.D.F: %s", yytext); return(CDF);}

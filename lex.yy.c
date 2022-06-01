@@ -608,11 +608,12 @@ FILE *yyln; /*puntero que utiliza flex, el cual termina parado en el ultimo toke
 #define VECTORWR 515
 #define CDF 516
 #define FRIEDMAN 517
+#define SYMBOL 518
 /********** definiciones regulares ********/
 /*si llega aqui, no se encontro ninguan categoria o plabra reservada que coincida con el caracter leido por flex*/
 /********** fin definiciones regulares ********/
 /*SECCION DE REGLAS*/
-#line 616 "lex.yy.c"
+#line 617 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -763,9 +764,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 103 "categories.l"
+#line 104 "categories.l"
 
-#line 769 "lex.yy.c"
+#line 770 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -850,150 +851,150 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 104 "categories.l"
+#line 105 "categories.l"
 {printf("categoria texto constante texto %s", yytext); return(TEXT);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 105 "categories.l"
+#line 106 "categories.l"
 {/* no hay accion y no hay retorno */}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 106 "categories.l"
+#line 107 "categories.l"
 {printf("categoria comentario %s", yytext); return(COMMENT);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 107 "categories.l"
+#line 108 "categories.l"
 {printf("categoria vector: %s", yytext); return(VECTOR);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 108 "categories.l"
+#line 109 "categories.l"
 {printf("categoria constante numerica entero: %s ", yytext); return(INT);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 109 "categories.l"
+#line 110 "categories.l"
 {printf("categoria constante numerica flotante: %s", yytext); return(FLOAT);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 110 "categories.l"
+#line 111 "categories.l"
 {printf("categoria fin de linea : %s", yytext); return(SEMI);}
 	YY_BREAK
 case 8:
-#line 112 "categories.l"
-case 9:
 #line 113 "categories.l"
-case 10:
+case 9:
 #line 114 "categories.l"
-case 11:
+case 10:
 #line 115 "categories.l"
-case 12:
+case 11:
 #line 116 "categories.l"
-case 13:
+case 12:
 #line 117 "categories.l"
-case 14:
+case 13:
 #line 118 "categories.l"
-case 15:
+case 14:
 #line 119 "categories.l"
-case 16:
+case 15:
 #line 120 "categories.l"
-case 17:
+case 16:
 #line 121 "categories.l"
-case 18:
+case 17:
 #line 122 "categories.l"
-case 19:
+case 18:
 #line 123 "categories.l"
-case 20:
+case 19:
 #line 124 "categories.l"
-case 21:
+case 20:
 #line 125 "categories.l"
-case 22:
+case 21:
 #line 126 "categories.l"
-case 23:
+case 22:
 #line 127 "categories.l"
-case 24:
+case 23:
 #line 128 "categories.l"
+case 24:
+#line 129 "categories.l"
 case 25:
 YY_RULE_SETUP
-#line 128 "categories.l"
+#line 129 "categories.l"
 {printf("categoria  palabra reservada: %s", yytext); return(RESERVE);}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 129 "categories.l"
+#line 130 "categories.l"
 {printf("categoria operador de asignacion : %s", yytext); return(ASSIGNOP);}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 130 "categories.l"
+#line 131 "categories.l"
 {printf("categoria operador aritmetico: %s", yytext); return(OPARIT);}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 131 "categories.l"
+#line 132 "categories.l"
 {printf("categoria a operador relacional: %s", yytext); return(RELOP);}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 132 "categories.l"
+#line 133 "categories.l"
 {printf("categoria  parentesis : %s", yytext); return(PARENTESIS);}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 133 "categories.l"
+#line 134 "categories.l"
 {printf("categoria  parentesis cuadrados : %s", yytext); return(BRACKETS);}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 134 "categories.l"
+#line 135 "categories.l"
 {printf("categoria  separador : %s", yytext); return(COMMA);}
 	YY_BREAK
 case 32:
-#line 136 "categories.l"
-case 33:
 #line 137 "categories.l"
-case 34:
+case 33:
 #line 138 "categories.l"
+case 34:
+#line 139 "categories.l"
 case 35:
 YY_RULE_SETUP
-#line 138 "categories.l"
-{printf("categoria simbolo condicional : %s", yytext);}
+#line 139 "categories.l"
+{printf("categoria simbolo condicional : %s", yytext); return(SYMBOL);}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 139 "categories.l"
+#line 140 "categories.l"
 {printf("categoria llaves : %s", yytext); return(LLAVES);}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 140 "categories.l"
+#line 141 "categories.l"
 {printf("categoria identificador: %s", yytext); return(ID);}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 141 "categories.l"
+#line 142 "categories.l"
 {printf("categoria C.D.F: %s", yytext); return(CDF);}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 142 "categories.l"
+#line 143 "categories.l"
 {printf("categoria funcion Friedman: %s", yytext); return(FRIEDMAN);}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 143 "categories.l"
+#line 144 "categories.l"
 {printf("categoria model: %s", yytext); return(MODEL);}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 145 "categories.l"
+#line 146 "categories.l"
 ECHO;
 	YY_BREAK
-#line 997 "lex.yy.c"
+#line 998 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1879,7 +1880,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 145 "categories.l"
+#line 146 "categories.l"
 
 
 /********** para recorrer  la entradad y devolver la categoría lexica correspondiente ********/
