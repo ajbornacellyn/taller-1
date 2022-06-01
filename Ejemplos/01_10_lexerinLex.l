@@ -8,6 +8,7 @@
 #define COMMAND 404
 %}
 /********** definiciones regulares ********/
+
 INT [1-9][0-9]*|[0]
 FLOAT [0-9]*[.][0-9]+([eE][+-]?[0-9]*|[0])?f?
 delim [ \t\n]
@@ -30,11 +31,9 @@ ELSE else
 WHILE while
 SPACE [ \n\t]
 ID [a-zA-Z_][a-zA-Z_0-9]*
-/*end of definition*/
 /********** fin definiciones regulares ********/
 %%
 {ws} {/* no hay accion y no hay retorno */}
-
 {INT} {printf("categoria entero: %s\n", yytext);}
 {FLOAT} {printf("categoria flotante: %s\n", yytext);}
 {SEMI} {printf("categoria fin de linea : %s\n", yytext);}
@@ -48,7 +47,6 @@ ID [a-zA-Z_][a-zA-Z_0-9]*
 {ELSE} |
 {WHILE} {printf("categoria palabra reservada: %s\n", yytext);}
 {ID} {printf("categoria  ID: %s\n", yytext);}
-
 %%
 int yywrap() {
   return 1;

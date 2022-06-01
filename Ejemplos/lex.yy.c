@@ -398,9 +398,9 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 ".\\01_10_lexerinLex.l"
+#line 1 "01_10_lexerinLex.l"
 #define INITIAL 0
-#line 2 ".\\01_10_lexerinLex.l"
+#line 2 "01_10_lexerinLex.l"
 #include "stdio.h"
 #include "stdlib.h"
 #define NUMBER 400
@@ -562,7 +562,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 35 ".\\01_10_lexerinLex.l"
+#line 35 "01_10_lexerinLex.l"
 
 #line 568 "lex.yy.c"
 
@@ -649,68 +649,68 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 36 ".\\01_10_lexerinLex.l"
+#line 36 "01_10_lexerinLex.l"
 {/* no hay accion y no hay retorno */}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 38 ".\\01_10_lexerinLex.l"
+#line 38 "01_10_lexerinLex.l"
 {printf("categoria entero: %s\n", yytext);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 39 ".\\01_10_lexerinLex.l"
+#line 39 "01_10_lexerinLex.l"
 {printf("categoria flotante: %s\n", yytext);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 40 ".\\01_10_lexerinLex.l"
+#line 40 "01_10_lexerinLex.l"
 {printf("categoria fin de linea : %s\n", yytext);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 41 ".\\01_10_lexerinLex.l"
+#line 41 "01_10_lexerinLex.l"
 {printf("categoria simbolo : %s\n", yytext);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 42 ".\\01_10_lexerinLex.l"
+#line 42 "01_10_lexerinLex.l"
 {printf("categoria operador de asignacion : %s\n", yytext);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 43 ".\\01_10_lexerinLex.l"
+#line 43 "01_10_lexerinLex.l"
 {printf("categoria operador: %s\n", yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 44 ".\\01_10_lexerinLex.l"
+#line 44 "01_10_lexerinLex.l"
 {printf("categoria a operador relacional: %s\n", yytext);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 45 ".\\01_10_lexerinLex.l"
+#line 45 "01_10_lexerinLex.l"
 {printf("categoria  parentesis : %s\n", yytext);}
 	YY_BREAK
 case 10:
-#line 47 ".\\01_10_lexerinLex.l"
+#line 47 "01_10_lexerinLex.l"
 case 11:
-#line 48 ".\\01_10_lexerinLex.l"
+#line 48 "01_10_lexerinLex.l"
 case 12:
-#line 49 ".\\01_10_lexerinLex.l"
+#line 49 "01_10_lexerinLex.l"
 case 13:
 YY_RULE_SETUP
-#line 49 ".\\01_10_lexerinLex.l"
+#line 49 "01_10_lexerinLex.l"
 {printf("categoria palabra reservada: %s\n", yytext);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 50 ".\\01_10_lexerinLex.l"
+#line 50 "01_10_lexerinLex.l"
 {printf("categoria  ID: %s\n", yytext);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 52 ".\\01_10_lexerinLex.l"
+#line 52 "01_10_lexerinLex.l"
 ECHO;
 	YY_BREAK
 #line 717 "lex.yy.c"
@@ -1599,7 +1599,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 52 ".\\01_10_lexerinLex.l"
+#line 52 "01_10_lexerinLex.l"
 
 int yywrap() {
   return 1;

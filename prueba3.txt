@@ -1,0 +1,12 @@
+# esto es un comentario
+bloque1 = {1.4,2.3,3.3,4.2};
+vector bloque2 = {1.2,4.32,4.3,2.3};
+
+boolean var1 = true;
+boolean var2 = false;
+var3 = 50;
+var4 = 6.6;
+var5 = 6.33E20;
+var6 = -66;
+var7 = -668.3;
+oper = bloque1 * bloque2;

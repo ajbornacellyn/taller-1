@@ -1,0 +1,12 @@
+bloque1 = {1.4,2.3,3.3,4.2};
+bloque2 = {1.2,4.32,4.3,2.3};
+n= 5 * 10;
+
+def funciontion1 (bloque1, bloque2){
+    while (n <= 10){
+        prueba =  bloque1 * n;
+        n--;
+    }
+     return prueba;
+}
+
