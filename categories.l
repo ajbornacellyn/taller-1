@@ -2,6 +2,7 @@
 
 /*SECCION DE DEFINICIONES*/
 %{
+#include "sintactico.tab.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -20,6 +21,7 @@ FILE *yyln; /*puntero que utiliza flex, el cual termina parado en el ultimo toke
 #define ASSIGNOP 412
 #define RELOP 413
 #define OPARIT 414
+#define SUMA 424
 #define PARENTESIS 415
 #define BRACKETS 416
 #define LLAVES 417
@@ -64,6 +66,7 @@ COMMA [,]
 ASSIGNOP [=]
 RELOP [>]|[<]|[>][=]|[<][=]|[=][=]|[!][=](^[=])
 OPARIT [+]|[-]|[*]|[/]
+SUMA [+]
 PARENTESIS [\(]|[\)]
 BRACKETS [\[]|[\]]
 LLAVES [\{]|[\}]
@@ -128,7 +131,7 @@ FRIEDMAN {FRIEDMANW}\(({MODEL}|{ID})\)
 {BOOLEAN} |
 {STRING} {printf("categoria  palabra reservada: %s", yytext); return(RESERVE);}
 {ASSIGNOP} {printf("categoria operador de asignacion : %s", yytext); return(ASSIGNOP);}
-{OPARIT} {printf("categoria operador aritmetico: %s", yytext); return(OPARIT);}
+{SUMA} {printf("categoria operador aritmetico suma: %s", yytext); return(SUMA);}
 {RELOP} {printf("categoria a operador relacional: %s", yytext); return(RELOP);}
 {PARENTESIS} {printf("categoria  parentesis : %s", yytext); return(PARENTESIS);}
 {BRACKETS} {printf("categoria  parentesis cuadrados : %s", yytext); return(BRACKETS);}
